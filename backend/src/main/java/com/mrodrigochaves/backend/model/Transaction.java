@@ -5,38 +5,36 @@ import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Data;
 
 @Entity
 @Data
 public class Transaction {
 
-    @Column(name = "id")
-    Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-    @Column(name = "creator_id")
-    Long creatorId;
-
-    @Column(name = "affiliate_id")
-    Long affiliateId;
-
-    @Column(name = "product_id")
-    Long productId;
+    @Column(name = "name")
+    private String name;
 
     @Column(name = "quantity")
-    Integer quantity;
+    private Integer quantity;
 
     @Column(name = "price")
-    BigDecimal price;
+    private BigDecimal price;
 
     @Column(name = "commission")
-    BigDecimal commission;
+    private BigDecimal commission;
 
-    @Column(name = "status")
-    LocalDateTime createdAt;
+    @Column(name = "createdAt")
+    private LocalDateTime createdAt;
 
-    @Column(name = "status")
-    LocalDateTime updatedAt;
+    @Column(name = "updatedAt")
+    private LocalDateTime updatedAt;
 
     
 }
