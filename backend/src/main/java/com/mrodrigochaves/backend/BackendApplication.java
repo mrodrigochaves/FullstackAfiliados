@@ -11,10 +11,10 @@ import org.springframework.context.annotation.Bean;
 import com.mrodrigochaves.backend.repository.TransactionRepository;
 import com.mrodrigochaves.backend.model.Transaction;
 
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 
 @SpringBootApplication
-@EnableSwagger2
+
 
 public class BackendApplication {
 
@@ -25,15 +25,17 @@ public class BackendApplication {
 	@Bean
 	CommandLineRunner initDataBase( TransactionRepository transactionRepository){
 		return args	->	{
+			transactionRepository.deleteAll();
+
 			Transaction transaction = new Transaction();
-			transaction.setCreatorId(1L);
-			transaction.setAffiliateId(1L);
-			transaction.setProductId(1L);
+
+			transaction.setName("Jose");
 			transaction.setQuantity(1);
 			transaction.setPrice(new BigDecimal(1));
 			transaction.setCommission(new BigDecimal(1));
 			transaction.setCreatedAt(LocalDateTime.now());
 			transaction.setUpdatedAt(LocalDateTime.now());
+
 			transactionRepository.save(transaction);
 		};
 		
