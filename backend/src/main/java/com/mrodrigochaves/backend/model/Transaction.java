@@ -2,12 +2,13 @@ package com.mrodrigochaves.backend.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.Data;
 
 @Entity
@@ -15,26 +16,27 @@ import lombok.Data;
 public class Transaction {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
-    private String name;
+    @ManyToOne
+    @JoinColumn(name = "type_id", referencedColumnName = "type_id")
+    private TransactionType type;
 
-    @Column(name = "quantity")
-    private Integer quantity;
+    @Column(name = "date")
+    private LocalDateTime date;
+
+    @Column(name = "product")
+    private String product;
 
     @Column(name = "price")
     private BigDecimal price;
 
-    @Column(name = "commission")
-    private BigDecimal commission;
+    @Column(name = "seller")
+    private String seller;
 
-    @Column(name = "createdAt")
-    private LocalDateTime createdAt;
+    @ManyToOne
+    @JoinColumn(name = "creator_id")
+    private Creator creator;
 
-    @Column(name = "updatedAt")
-    private LocalDateTime updatedAt;
-
-    
 }
