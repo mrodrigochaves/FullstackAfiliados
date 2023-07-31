@@ -12,7 +12,7 @@ import com.mrodrigochaves.backend.repository.TransactionRepository;
 import lombok.AllArgsConstructor;
 
 @RestController
-@RequestMapping("/api/v1/transaction")
+@RequestMapping("/api")
 @AllArgsConstructor
 
 public class TransactionController {
