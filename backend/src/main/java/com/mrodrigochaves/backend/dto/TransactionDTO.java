@@ -3,6 +3,8 @@ package com.mrodrigochaves.backend.dto;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Data;
 
 @Data
@@ -10,16 +12,15 @@ public class TransactionDTO {
 
     private Long id;
 
-    private String name;
+    private int type;
 
-    private Integer quantity;
+    private String product;
+
+    private String seller;
 
     private BigDecimal price;
 
-    private BigDecimal commission;
-
-    private LocalDateTime createdAt;
-    
-    private LocalDateTime updatedAt;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime date;
 
 }
