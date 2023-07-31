@@ -20,8 +20,8 @@ public class Transaction {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "type_id")
-    private TransactionType type;
+    @JoinColumn(name = "type")
+    private TransactionType typeId;
 
     @Column(name = "date")
     private LocalDateTime date;
