@@ -30,7 +30,10 @@ public class TransactionService {
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(",");
                 Transaction transaction = new Transaction();
-                transaction.setType(new TransactionType(values[0], values[1], values[2], values[3]));
+                
+                Long typeId = Long.parseLong(values[0]);
+                transaction.setType(new TransactionType(typeId, values[1], values[2], values[3]));
+                
                 transaction.setDate(LocalDateTime.parse(values[4], DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
                 transaction.setProduct(values[5]);
                 transaction.setPrice(new BigDecimal(values[6]));
@@ -40,6 +43,7 @@ public class TransactionService {
         }
         return transactions;
     }
+    
 
     public void saveTransactions(List<Transaction> transactions) {
         transactionRepository.saveAll(transactions);
