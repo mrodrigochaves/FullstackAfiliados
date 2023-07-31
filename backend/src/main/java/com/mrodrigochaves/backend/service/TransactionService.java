@@ -32,7 +32,7 @@ public class TransactionService {
                 Transaction transaction = new Transaction();
                 
                 Long typeId = Long.parseLong(values[0]);
-                transaction.setType(new TransactionType(typeId, values[1], values[2], values[3]));
+                transaction.setTypeId(new TransactionType(typeId, values[1], values[2], values[3]));
                 
                 transaction.setDate(LocalDateTime.parse(values[4], DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
                 transaction.setProduct(values[5]);
