@@ -20,7 +20,7 @@ public class Transaction {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "type_id", referencedColumnName = "type_id")
+    @JoinColumn(name = "type_id")
     private TransactionType type;
 
     @Column(name = "date")
@@ -38,5 +38,11 @@ public class Transaction {
     @ManyToOne
     @JoinColumn(name = "creator_id")
     private Creator creator;
+
+    @ManyToOne
+    @JoinColumn(name = "affiliate_id")
+    private Affiliate affiliate;
+
+    
 
 }

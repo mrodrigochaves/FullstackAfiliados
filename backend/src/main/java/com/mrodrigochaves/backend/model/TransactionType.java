@@ -7,12 +7,19 @@ import jakarta.persistence.Id;
 @Entity
 public class TransactionType {
 
-    public TransactionType(String string, String string2, String string3, String string4) {
+    public TransactionType() {
+    }
+
+    public TransactionType(Long typeId, String description, String nature, String sinal) {
+        this.typeId = typeId;
+        this.description = description;
+        this.nature = nature;
+        this.sinal = sinal;
     }
 
     @Id
     @Column(name = "type_id")
-    private String typeId;
+    private Long typeId;
 
     @Column(name = "description")
     private String description;
@@ -23,4 +30,35 @@ public class TransactionType {
     @Column(name = "sinal")
     private String sinal;
 
+    public Long getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(Long typeId) {
+        this.typeId = typeId;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getNature() {
+        return nature;
+    }
+
+    public void setNature(String nature) {
+        this.nature = nature;
+    }
+
+    public String getSinal() {
+        return sinal;
+    }
+
+    public void setSinal(String sinal) {
+        this.sinal = sinal;
+    }
 }

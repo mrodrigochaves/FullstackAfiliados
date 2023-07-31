@@ -1,12 +1,9 @@
 package com.mrodrigochaves.backend.model;
 
-import java.util.List;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import lombok.Data;
 
 @Entity
@@ -19,7 +16,4 @@ public class Creator {
 
     private String name;
 
-    @OneToMany(mappedBy = "creator")
-    private List<Client> clients;
-    
 }
