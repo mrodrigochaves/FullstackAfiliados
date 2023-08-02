@@ -13,7 +13,11 @@ import com.mrodrigochaves.backend.repository.TransactionRepository;
 import lombok.AllArgsConstructor;
 
 @RestController
+
+// CORS configuration
 @CrossOrigin(origins = "http://localhost:8080")
+
+// Path
 @RequestMapping("/api")
 @AllArgsConstructor
 
