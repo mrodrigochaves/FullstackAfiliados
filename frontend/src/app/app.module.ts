@@ -13,6 +13,8 @@ import {MatCardModule} from '@angular/material/card';
 import { UploadFormComponent } from './component/upload-form/upload-form.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { TableModule } from './component/table/table.module';
+import { UploadFormModule } from './component/upload-form/upload-form.module';
 
 @NgModule({
     declarations: [
@@ -36,6 +38,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
         MatCardModule,
         MatFormFieldModule,
         MatSnackBarModule,
+        TableModule,
+        UploadFormModule,
 
     ]
 })
