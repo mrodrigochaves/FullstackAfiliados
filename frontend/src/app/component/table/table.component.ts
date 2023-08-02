@@ -11,7 +11,7 @@ export class TableComponent implements OnInit {
   dataSource: Transaction[] = [];
   displayedColumns: string[] = ['id', 'type_id', 'date', 'product', 'price', 'seller'];
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService) {  }
 
   ngOnInit() {
     this.apiService.getTransactions().subscribe((data: Transaction[]) => {
