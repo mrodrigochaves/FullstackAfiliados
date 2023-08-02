@@ -34,15 +34,6 @@ public class Transaction {
 
     @Column(name = "seller")
     private String seller;
-
-    @ManyToOne
-    @JoinColumn(name = "creator_id")
-    private Creator creator;
-
-    @ManyToOne
-    @JoinColumn(name = "affiliate_id")
-    private Affiliate affiliate;
-
     
 
 }
