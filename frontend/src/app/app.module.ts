@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -9,12 +8,17 @@ import { TableComponent } from './component/table/table.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { HttpClientModule } from '@angular/common/http';
-
+import { FormsModule } from '@angular/forms';
+import {MatCardModule} from '@angular/material/card';
+import { UploadFormComponent } from './component/upload-form/upload-form.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
     declarations: [
         AppComponent,
         TableComponent,
+        UploadFormComponent
 
     ],
     providers: [
@@ -27,7 +31,11 @@ import { HttpClientModule } from '@angular/common/http';
         MatTableModule,
         BrowserAnimationsModule,
         HttpClientModule,
-        MatPaginatorModule
+        MatPaginatorModule,
+        FormsModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatSnackBarModule,
 
     ]
 })
