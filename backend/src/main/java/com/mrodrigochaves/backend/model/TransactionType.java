@@ -10,6 +10,7 @@ public class TransactionType {
     public TransactionType() {
     }
 
+    // Constructor
     public TransactionType(Long typeId, String description, String nature, String sinal) {
         this.typeId = typeId;
         this.description = description;
@@ -30,6 +31,8 @@ public class TransactionType {
     @Column(name = "sinal")
     private String sinal;
 
+
+    // Getters and Setters
     public Long getTypeId() {
         return typeId;
     }
