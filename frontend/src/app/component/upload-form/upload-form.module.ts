@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { UploadFormComponent } from './upload-form.component';
 
 const routes: Routes = [
-  { path: '/upload', component: UploadFormComponent },
+  { path: 'upload', component: UploadFormComponent },
 ];
 
 @NgModule({
