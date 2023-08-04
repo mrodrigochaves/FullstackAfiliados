@@ -10,11 +10,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
-import { UploadFormComponent } from './component/upload-form/upload-form.component';
+import { UploadFormComponent } from './resources/templates/upload-form/upload-form.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TableModule } from './component/table/table.module';
-import { UploadFormModule } from './component/upload-form/upload-form.module';
+import { UploadFormModule } from './resources/templates/upload-form/upload-form.module';
 import { HomeComponent } from './home/home.component';
 import {MatInputModule} from '@angular/material/input';
 
@@ -24,7 +24,6 @@ import {MatInputModule} from '@angular/material/input';
         TableComponent,
         UploadFormComponent,
         HomeComponent
-
     ],
     providers: [
       ApiService,
@@ -44,7 +43,6 @@ import {MatInputModule} from '@angular/material/input';
         TableModule,
         UploadFormModule,
         MatInputModule
-
     ]
 })
 export class AppModule { }
