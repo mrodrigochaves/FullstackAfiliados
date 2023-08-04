@@ -15,12 +15,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TableModule } from './component/table/table.module';
 import { UploadFormModule } from './component/upload-form/upload-form.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         TableComponent,
-        UploadFormComponent
+        UploadFormComponent,
+        HomeComponent
 
     ],
     providers: [
