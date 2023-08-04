@@ -16,6 +16,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TableModule } from './component/table/table.module';
 import { UploadFormModule } from './component/upload-form/upload-form.module';
 import { HomeComponent } from './home/home.component';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
     declarations: [
@@ -42,6 +43,7 @@ import { HomeComponent } from './home/home.component';
         MatSnackBarModule,
         TableModule,
         UploadFormModule,
+        MatInputModule
 
     ]
 })
