@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { Transaction } from 'src/app/model/transactions';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -8,15 +10,20 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./table.component.scss'],
 })
 export class TableComponent implements OnInit {
-  dataSource: Transaction[] = [];
+  dataSource: MatTableDataSource<Transaction>;
   displayedColumns: string[] = ['id', 'type_id', 'date', 'product', 'price', 'seller'];
 
-  constructor(private apiService: ApiService) {  }
+  @ViewChild('paginator')
+  paginator!: MatPaginator;
+
+  constructor(private apiService: ApiService) {
+    this.dataSource = new MatTableDataSource<Transaction>();
+  }
 
   ngOnInit() {
     this.apiService.getTransactions().subscribe((data: Transaction[]) => {
-      this.dataSource = data;
+      this.dataSource.data = data;
+      this.dataSource.paginator = this.paginator;
     });
   }
 }
-
