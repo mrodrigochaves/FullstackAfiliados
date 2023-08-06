@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { Transaction } from 'src/app/model/transactions';
-import { ApiService } from 'src/app/services/api.service';
+import { Transaction } from 'src/app/trasaction/model/transactions';
+import { ApiService } from 'src/app/trasaction/services/api.service';
 
 @Component({
   selector: 'app-table',
