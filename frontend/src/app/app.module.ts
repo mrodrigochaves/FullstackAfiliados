@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './trasaction/containers/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ApiService } from './trasaction/services/api.service';
@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './trasaction/containers/home/home.component';
-import { TableComponent } from './component/table/table.component';
+import { TableComponent } from './trasaction/component/table/table.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
