@@ -14,7 +14,7 @@ export class ApiService {
     return this.http.post<any>(this.apiUrl + 'upload', formData);
   }
 
-  private apiUrl = 'http://localhost:8080/ap';
+  private apiUrl = 'http://localhost:8080/api';
 
   constructor(private http: HttpClient) {}
 
