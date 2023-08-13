@@ -1,89 +1,73 @@
 package com.mrodrigochaves.backend.model;
 
-import java.io.Serializable;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.validation.constraints.Email;
+import java.util.Collection;
+import java.util.List;
 
-
-@Entity
-public class Users implements Serializable {
+@Table(name = "users")
+@Entity(name = "users")
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(of = "id")
+public class Users implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "USER_ID")
-    private Long userId;
 
-    @Column(name = "USERNAME")
-    private String username;
+    private String id;
 
-    @Column(name = "PASSWORD")
+    private String login;
+
     private String password;
 
-    @Column(name = "FIRST_NAME")
-    private String firstName;
+    private UsersRole role;
+   
 
-    @Column(name = "LAST_NAME")
-    private String lastName;
 
-    @Email
-    @Column(name = "EMAIL")
-    private String email;
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
+    public Users(String login, String password, UsersRole role){
+        this.login = login;
         this.password = password;
+        this.role = role;
     }
 
-    public String getFirstName() {
-        return firstName;
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        if(this.role == UsersRole.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_USER"));
+        else return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    @Override
+    public String getUsername() {
+        return login;
     }
 
-    public String getLastName() {
-        return lastName;
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
     }
 
-    public String getEmail() {
-        return email;
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 
-    
-
-
-    
 }
